@@ -1,32 +1,25 @@
 package com.alisha.data;
 
 import com.alisha.utilities.CollectionManager;
-
-import java.time.LocalDate;
 import java.util.Objects;
 
 public class Route implements Comparable<Route> {
     private int id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
-    private String name; //Поле не может быть null, Строка не может быть пустой
-    private Coordinates coordinates; //Поле не может быть null
-    private java.time.LocalDate creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
-    private LocationFrom from; //Поле не может быть null
-    private LocationTo to; //Поле не может быть null
-    private long distance; //Значение поля должно быть больше 1
+    private final String name; //Поле не может быть null, Строка не может быть пустой
+    private final Coordinates coordinates; //Поле не может быть null
+    private final java.time.LocalDate creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
+    private final LocationFrom from; //Поле не может быть null
+    private final LocationTo to; //Поле не может быть null
+    private final long distance; //Значение поля должно быть больше 1
 
-
-    public Route(int id, String name, Coordinates coordinates, LocalDate dateTime, Integer distance, LocationFrom location, LocationDouble locationDouble){
-
-    }
-
-    public Route(String name, Coordinates coordinates, LocationFrom from, LocationDouble to, CollectionManager collectionManager) {
+    public Route(String name, Coordinates coordinates, LocationFrom from, LocationTo to, long distance, CollectionManager collectionManager) {
         this.id = collectionManager.getMaxId() + 1;
         this.name = name;
         this.coordinates = coordinates;
         this.creationDate = java.time.LocalDate.now();
         this.from = from;
         this.to = to;
-        this.distance = getDistance() + 2;
+        this.distance = distance;
     }
 
 
@@ -38,9 +31,6 @@ public class Route implements Comparable<Route> {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
     public long getDistance() {
         return distance;
     }
@@ -48,7 +38,7 @@ public class Route implements Comparable<Route> {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, distance, creationDate, coordinates, to, from, distance);
+        return Objects.hash(id, name, creationDate, coordinates, to, from, distance);
     }
 
     @Override
@@ -60,7 +50,7 @@ public class Route implements Comparable<Route> {
             return false;
         }
         Route that = (Route) o;
-        return id == that.id && Objects.equals(name, that.name) && Objects.equals(coordinates, that.coordinates) && Objects.equals(creationDate, that.creationDate) && Objects.equals(to, that.to) && from == that.from && distance == that.distance;
+        return id == that.id && Objects.equals(name, that.name) && Objects.equals(coordinates, that.coordinates) && Objects.equals(creationDate, that.creationDate) && Objects.equals(to, that.to) && Objects.equals(from, that.from) && distance == that.distance;
     }
 
     @Override

@@ -28,8 +28,8 @@ public class LocationFrom {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        LocationFrom location = (LocationFrom) o;
-        return Double.compare(location.x, x) == 0 && Objects.equals(y, location.y) && Objects.equals(name, location.name);
+        LocationFrom locationFrom = (LocationFrom) o;
+        return Double.compare(locationFrom.x, x) == 0 && Objects.equals(y, locationFrom.y) && Objects.equals(name, locationFrom.name);
     }
 
     @Override
