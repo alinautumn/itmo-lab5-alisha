@@ -1,7 +1,7 @@
 package com.alisha.utilities;
 
 import com.alisha.data.Coordinates;
-import com.alisha.data.Location;
+import com.alisha.data.LocationFrom;
 import com.alisha.data.LocationDouble;
 import com.alisha.data.Route;
 
@@ -32,7 +32,7 @@ public class RouteMaker {
         String name = asker.ask(arg -> (arg).length() > 0, "Enter name (String)",
                 ERROR_MESSAGE, "The string must not be empty", x -> x, false);
         Coordinates coordinates = askForCoordinates(); //not null
-        Location from = askForLocation(); //not null
+        LocationFrom from = askForLocation(); //not null
         LocationDouble to = askForLocationDouble(); //not null
         return new Route(name, coordinates, from, to, collectionManager);
     }
@@ -58,7 +58,7 @@ public class RouteMaker {
         return new Coordinates(x, y);
     }
 
-    private Location askForLocation() {
+    private LocationFrom askForLocation() {
         outputManager.println("Enter location data");
         String name = asker.ask(arg -> (arg).length() > 0, "Enter name (String) (can be null)",
                 ERROR_MESSAGE, "The string must not be empty. Try again", x -> x, true);
@@ -67,7 +67,7 @@ public class RouteMaker {
         Double y = asker.ask(arg -> true, "Enter y (Double)", ERROR_MESSAGE,
                 ERROR_MESSAGE, Double::parseDouble, false);
 
-        return new Location(x, y, name);
+        return new LocationFrom(x, y, name);
     }
 
     public static class Asker {

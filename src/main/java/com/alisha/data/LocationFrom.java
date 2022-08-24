@@ -2,13 +2,13 @@ package com.alisha.data;
 
 import java.util.Objects;
 
-public class Location {
+public class LocationFrom {
     private final Double x; //Поле не может быть null
     private final Double y; //Поле не может быть null
     private final String name; //Строка не может быть пустой, Поле не может быть null
 
 
-    public Location(Double x, Double y, String name) {
+    public LocationFrom(Double x, Double y, String name) {
         this.x = x;
         this.y = y;
         this.name = name;
@@ -28,13 +28,13 @@ public class Location {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Location location = (Location) o;
+        LocationFrom location = (LocationFrom) o;
         return Double.compare(location.x, x) == 0 && Objects.equals(y, location.y) && Objects.equals(name, location.name);
     }
 
     @Override
     public String toString() {
-        return "Location{"
+        return "LocationFrom{"
                 + "x=" + x
                 + ", y=" + y
                 + ", name='" + name + '\''

@@ -10,16 +10,16 @@ public class Route implements Comparable<Route> {
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
     private java.time.LocalDate creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
-    private Location from; //Поле не может быть null
-    private LocationDouble to; //Поле не может быть null
+    private LocationFrom from; //Поле не может быть null
+    private LocationTo to; //Поле не может быть null
     private long distance; //Значение поля должно быть больше 1
 
 
-    public Route(int id, String name, Coordinates coordinates, LocalDate dateTime, Integer distance, Location location, LocationDouble locationDouble){
+    public Route(int id, String name, Coordinates coordinates, LocalDate dateTime, Integer distance, LocationFrom location, LocationDouble locationDouble){
 
     }
 
-    public Route(String name, Coordinates coordinates, Location from, LocationDouble to, CollectionManager collectionManager) {
+    public Route(String name, Coordinates coordinates, LocationFrom from, LocationDouble to, CollectionManager collectionManager) {
         this.id = collectionManager.getMaxId() + 1;
         this.name = name;
         this.coordinates = coordinates;
