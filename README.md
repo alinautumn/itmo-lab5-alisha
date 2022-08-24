@@ -12,7 +12,7 @@
 * Чтение данных из файла необходимо реализовать с помощью класса **java.util.Scanner**  
 * Запись данных в файл необходимо реализовать с помощью класса **java.io.FileOutputStream**  
 * Все классы в программе должны быть задокументированы в формате javadoc.  
-* Программа должна корректно работать с неправильными данными (ошибки пользовательского ввода, отсутсвие прав доступа к файлу и т.п.).
+* Программа должна корректно работать с неправильными данными (ошибки пользовательского ввода, отсутствие прав доступа к файлу и т.п.).
 
 **В интерактивном режиме программа должна поддерживать выполнение следующих команд:**
 
@@ -30,8 +30,8 @@
 **add_if_min {element}** : добавить новый элемент в коллекцию, если его значение меньше, чем у наименьшего элемента этой коллекции  
 **history** : вывести последние 14 команд (без их аргументов)  
 **remove_any_by_distance distance** : удалить из коллекции один элемент, значение поля distance которого эквивалентно заданному  
-**average_of_distance** : вывести среднее значение поля distance для всех элементов коллекции  
-**print_field_ascending_distance** : вывести значения поля distance всех элементов в порядке возрастания  
+**remove_greater {element}** : удалить из коллекции все элементы, превышающие заданный  
+**print_ascending** : вывести элементы коллекции в порядке возрастания  
 
 **Формат ввода команд:**
 
@@ -51,8 +51,8 @@ public class **Route** {
     private String name; //Поле не может быть null, Строка не может быть пустой  
     private Coordinates coordinates; //Поле не может быть null  
     private java.util.LocalDate creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически  
-    private Location from; //Поле не может быть null  
-    private Location to; //Поле не может быть null  
+    private LocationFrom from; //Поле не может быть null  
+    private LocationTo to; //Поле не может быть null  
     private long distance; //Значение поля должно быть больше 1  
 }
 
@@ -62,14 +62,14 @@ public class **Coordinates** {
     private Float y;
 }
 
-public class **Location** {  
+public class **LocationFrom** {  
 
     private Double x; //Поле не может быть null  
     private Double y; //Поле не может быть null  
     private String name; //Строка не может быть пустой, Поле не может быть null
 }
 
-public class **LocationDouble** {
+public class **LocationTo** {
 
     private double x; //Поле не может быть null  
     private Integer y; //Поле не может быть null  
