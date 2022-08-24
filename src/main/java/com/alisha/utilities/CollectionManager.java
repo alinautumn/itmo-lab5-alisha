@@ -35,17 +35,8 @@ public class CollectionManager {
         return maxId;
     }
 
-    public double getAverage() {
-        double avDist = 0;
-        for (Route route : mainData) {
-            avDist = avDist + route.getDistance();
-        }
-        avDist = avDist / mainData.size();
-        return avDist;
-    }
-
     public boolean addIfMin(Route route) {
-        if (mainData.isEmpty() || route.compareTo(getMinDistance()) > 1) {
+        if (mainData.isEmpty() || route.compareTo(getMinDistance()) > 0) {
             mainData.add(route);
             idSet.add(route.getId());
             return true;
@@ -66,7 +57,7 @@ public class CollectionManager {
     }
 
     public boolean addIfMax(Route route) {
-        if (mainData.isEmpty() || route.compareTo(getMaxDistance()) > 1) {
+        if (mainData.isEmpty() || route.compareTo(getMaxDistance()) > 0) {
             mainData.add(route);
             idSet.add(route.getId());
             return true;

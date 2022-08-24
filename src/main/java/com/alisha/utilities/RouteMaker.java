@@ -31,13 +31,15 @@ public class RouteMaker {
         outputManager.println("Enter route data");
         String name = asker.ask(arg -> (arg).length() > 0, "Enter name (String)",
                 ERROR_MESSAGE, "The string must not be empty", x -> x, false);
+        long distance = asker.ask(arg -> true, "Enter distance (long)", ERROR_MESSAGE,
+                ERROR_MESSAGE, Long::parseLong, false);
         Coordinates coordinates = askForCoordinates(); //not null
-        LocationFrom from = askForLocation(); //not null
-        LocationTo to = askForLocationDouble(); //not null
-        return new Route(name, coordinates, from, to, collectionManager);
+        LocationFrom from = askForLocationFrom(); //not null
+        LocationTo to = askForLocationTo(); //not null
+        return new Route(name, coordinates, from, to, distance, collectionManager);
     }
 
-    private LocationTo askForLocationDouble() {
+    private LocationTo askForLocationTo() {
         outputManager.println("Enter LocationTo data");
         String name = asker.ask(arg -> (arg).length() > 0, "Enter name (String) (can be null)",
                 ERROR_MESSAGE, "The string must not be empty. Try again", x -> x, true);
@@ -58,8 +60,8 @@ public class RouteMaker {
         return new Coordinates(x, y);
     }
 
-    private LocationFrom askForLocation() {
-        outputManager.println("Enter location data");
+    private LocationFrom askForLocationFrom() {
+        outputManager.println("Enter locationFrom data");
         String name = asker.ask(arg -> (arg).length() > 0, "Enter name (String) (can be null)",
                 ERROR_MESSAGE, "The string must not be empty. Try again", x -> x, true);
         Double x = asker.ask(arg -> true, "Enter x (Double)", ERROR_MESSAGE,

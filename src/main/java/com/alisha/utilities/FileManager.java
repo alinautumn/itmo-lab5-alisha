@@ -22,10 +22,6 @@ public class FileManager {
         }
     }
 
-    public String getFilename() {
-        return filename;
-    }
-
     public String read() throws IOException {
         StringBuilder strData = new StringBuilder();
         try (Scanner scanner = new Scanner(new FileReader(filename))) {

@@ -19,13 +19,13 @@ public class CommandManager {
         commands.add(new ShowCommand(collectionManager));
         commands.add(new UpdateCommand(collectionManager, userInputManager, outputManager));
         commands.add(new RemoveByIdCommand(collectionManager));
+        commands.add(new RemoveGreaterCommand(collectionManager, userInputManager, outputManager));
         commands.add(new ClearCommand(collectionManager));
         commands.add(new ExecuteScriptCommand(userInputManager));
         commands.add(new AddIfMinCommand(collectionManager, userInputManager, outputManager));
         commands.add(new AddIfMaxCommand(collectionManager, userInputManager, outputManager));
         commands.add(new RemoveAnyByDistanceCommand(collectionManager));
-        commands.add(new AverageOfDistanceCommand(collectionManager));
-        commands.add(new PrintFieldAscendingDistanceCommand(collectionManager));
+        commands.add(new PrintAscendingCommand(collectionManager));
         commands.add(new InfoCommand(collectionManager));
         commands.add(new ExitCommand());
         commands.add(new HistoryCommand(historyManager));
